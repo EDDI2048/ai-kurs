@@ -1,0 +1,213 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  background: radial-gradient(circle at 50% -20%, #dc03e4e3, #031a77 40%, #9c0202d2 90%);
+}
+
+/* GLOW */
+body::before {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+  filter: blur(80px);
+}
+
+/* APP WRAPPER */
+.app {
+  position: relative;
+  width: 600px;
+  max-width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+/* GLASS INPUT */
+.search-box {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4),
+    inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+/* INPUT */
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: white;
+}
+
+.search-box input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* BUTTON */
+.search-box button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(10,15,30,0.9);
+  color: white;
+  cursor: pointer;
+}
+
+/* CHAT */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+/* MESSAGES */
+.message {
+  padding: 10px 14px;
+  border-radius: 16px;
+  max-width: 70%;
+  font-size: 14px;
+}
+
+.user {
+  background: #3636fc;
+  color: white;
+  align-self: flex-end;
+}
+
+.bot {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  align-self: flex-start;
+}
+
+/* MESSAGE ACTIONS */
+.message {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+}
+
+.message-content {
+  flex: 1;
+}
+
+.message-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-left: 8px;
+}
+
+.message:hover .message-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.action-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.edit-input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.2);
+  color: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+body.light-mode .edit-input {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(0,0,0,0.2);
+  color: black;
+}
+
+
+
+
+
+.search-box button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(10,15,30,0.9);
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+  margin-left: 6px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.search-box button:hover {
+  transform: scale(1.1);
+}
+
+/* Tema-animasjon */
+body.light-mode {
+  background: radial-gradient(circle at 50% -20%, #b43acc, #63adcf 40%, #d85a5a 90%);
+  color: black;
+}
+
+body.light-mode .search-box {
+  background: rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.35);
+}
+
+body.light-mode .bot {
+  background: rgba(0,0,0,0.05);
+  color: black;
+}
+
+body.light-mode .user {
+  background: #c4c5c7;
+  color: rgb(255, 255, 255);
+}
+
+/* Smidig overgang */
+body {
+  transition: background 0.6s, color 0.6s;
+}
+
+.search-box, .message {
+  transition: background 0.6s, color 0.6s;
+}
